@@ -288,32 +288,5 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
-    // 在<script>标签开头添加以下变量
-let participantCount = localStorage.getItem('healthParticipantCount') || 0;
-//  ✨新添加
-
-document.getElementById('health-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // 增加参与人数计数
-    participantCount++;
-    localStorage.setItem('healthParticipantCount', participantCount);
-    // ✨新添加
-    
-    // 原有表单处理代码...
-});
-
-// 在显示结果后添加统计信息显示
-function showParticipantCount() {
-    const countDisplay = document.createElement('div');
-    countDisplay.className = 'text-center mt-6 text-gray-500 text-sm';
-    countDisplay.innerHTML = `已有 <span class="font-bold text-blue-600">${participantCount}</span> 人参与健康评估`;
-    document.getElementById('result-section').appendChild(countDisplay);
-    // ✨新添加
-}
-
-// 在generateAdvice函数调用后添加
-showParticipantCount();
-// ✨新添加
 </body>
 </html>
